@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Poke-battle</title>
+		<link rel="stylesheet" href="./styles/styles.css" />
+	</head>
+	<body>
+		<header>
+			<img src="Assets/images/Pokémon_logo.svg.png" />
+			<h1>Battle Simulator</h1>
+			<p>
+				Welcome to Pokémon Battle Simulator! Dive into the thrilling world of
+				Pokémon and experience epic battles like never before. Our web program
+				allows you to select your favorite Pokémon and pit them against each
+				other in dynamic, simulated battles. Whether you're a seasoned Pokémon
+				Trainer or new to the game, you'll enjoy strategizing and witnessing
+				your chosen Pokémon unleash their unique abilities. Get ready to test
+				your skills, explore various battle scenarios, and become the ultimate
+				Pokémon Master!
+			</p>
+		</header>
+
+		<div class="selections">
+			<div class="selector1">
+				<form>
+					<label for="names">Pokemon 1</label>
+					<input list="names" name="names" />
+					<datalist id="names">
+						<!-- append list of available pokemon names -->
+						<option value="Pikachu"></option>
+						<option value="Squirtle"></option>
+						<option value="Charizard"></option>
+						<!-- append list of available pokemon names -->
+					</datalist>
+				</form>
+			</div>
+
+			<div class="selector">
+				<form>
+					<label for="names">Pokemon 2</label>
+					<input list="names" name="names" />
+					<datalist id="names">
+						<!-- append list of available pokemon names -->
+						<option value="Pikachu"></option>
+						<option value="Squirtle"></option>
+						<option value="Charizard"></option>
+						<!-- append list of available pokemon names -->
+					</datalist>
+				</form>
+			</div>
+		</div>
+
+		<div class="card-display">
+			<div class="card card--blank"></div>
+			<div class="card card--blank"></div>
+		</div>
+	</body>
+</html>
