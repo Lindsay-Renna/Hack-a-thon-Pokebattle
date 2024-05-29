@@ -73,7 +73,7 @@ function simulateBattle(pokemon1Data, pokemon2Data) {
 	const winnerName = [pokemon1Data.name, pokemon2Data.name][winnerIndex];
 	document.querySelector(".winner").textContent = `${
 		winnerName.charAt(0).toUpperCase() + winnerName.slice(1)
-	} is the winner!`;
+	} is the winner!!`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -106,11 +106,11 @@ document.addEventListener("DOMContentLoaded", () => {
 					document.querySelectorAll(".battle-box")[1],
 					pokemon2Data
 				);
-			}, 500);
+			}, 1000);
 
 			setTimeout(() => {
 				simulateBattle(pokemon1Data, pokemon2Data);
-			}, 2000);
+			}, 5000);
 		} else {
 			alert("Please select two Pokémon to battle.");
 		}
@@ -121,6 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function updateBattleBox(card, data) {
 	const battleBox = card;
+
 	const battleText1 = document.createElement("p");
 	battleText1.classList.add("battle-text");
 	const battleText2 = document.createElement("p");
@@ -135,13 +136,17 @@ function updateBattleBox(card, data) {
 	let capitalized_name = name.charAt(0).toUpperCase() + name.slice(1);
 
 	function battleTextUpdate(abilities, elements) {
-		elements[0].innerText = `${capitalized_name} started with ${abilities[0]}`;
-		battleBox.appendChild(elements[0]);
+		setTimeout(() => {
+			elements[0].innerText = `${capitalized_name} started with ${abilities[0]}!`;
+			battleBox.appendChild(elements[0]);
+		}, 1000);
+
+		card.classList.add("horizontal-shake");
 
 		setTimeout(() => {
-			elements[1].innerText = `${capitalized_name} followed up ${abilities[1]}`;
+			elements[1].innerText = `${capitalized_name} followed up with ${abilities[1]}!`;
 			battleBox.appendChild(elements[1]);
-		}, 1000);
+		}, 3000);
 	}
 
 	battleTextUpdate(abilities, elements);

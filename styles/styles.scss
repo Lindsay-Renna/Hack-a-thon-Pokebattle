@@ -167,6 +167,7 @@ header {
 
 			p {
 				padding-left: 1rem;
+				font-size: 1.5rem;
 			}
 		}
 	}
@@ -214,5 +215,31 @@ header {
 		font-family: "Jersey";
 		margin: 0;
 		font-size: 1.5rem;
+	}
+}
+
+.horizontal-shake {
+	animation: horizontal-shaking 0.35s 1s;
+}
+
+.horizontal-shake2 {
+	animation: horizontal-shaking 0.35s 1s;
+}
+
+@keyframes horizontal-shaking {
+	0% {
+		transform: translateX(0);
+	}
+	25% {
+		transform: translateX(5px);
+	}
+	50% {
+		transform: translateX(-5px);
+	}
+	75% {
+		transform: translateX(5px);
+	}
+	100% {
+		transform: translateX(0);
 	}
 }
