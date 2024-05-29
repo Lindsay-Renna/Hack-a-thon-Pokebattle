@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			setTimeout(() => {
 				simulateBattle(pokemon1Data, pokemon2Data);
-			}, 2000);
+			}, 3000);
 		} else {
 			alert("Please select two Pokémon to battle.");
 		}

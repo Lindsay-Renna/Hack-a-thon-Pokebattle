@@ -6,6 +6,12 @@
 	}
 }
 
+@mixin desktop {
+	@media (min-width: $mobile-breakpoint) {
+		@content;
+	}
+}
+
 @mixin button-style {
 	font-family: "Jersey";
 	font-size: 2rem;

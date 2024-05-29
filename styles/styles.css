@@ -51,9 +51,12 @@ header img {
 header h1 {
   margin: 0;
   font-family: "Jersey";
+  font-size: 4rem;
 }
 header p {
   width: 75%;
+  font-size: 1.25rem;
+  text-align: center;
 }
 
 .selections {
