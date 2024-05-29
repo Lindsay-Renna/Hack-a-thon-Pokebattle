@@ -1,8 +1,18 @@
+async function fetchPokemonNames() {
+	const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1000"); // Fetch first 1000 Pokémon names
+	if (response.ok) {
+		const data = await response.json();
+		return data.results.map((pokemon) => pokemon.name);
+	} else {
+		throw new Error("Failed to fetch Pokémon names");
+	}
+}
+
 async function fetchPokemonData(pokemonName) {
 	const response = await fetch(
 		`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`
 	);
-	// console.log("response", await response.json());
+
 	if (response.ok) {
 		return await response.json();
 	} else {
@@ -76,41 +86,64 @@ function simulateBattle(pokemon1Data, pokemon2Data) {
 	} is the winner!!`;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+//  populate details
+
+function populateDatalist(pokemonNames) {
+	const datalist = document.querySelector("#names");
+	datalist.innerHTML = ""; // Clear existing options
+	pokemonNames.forEach((name) => {
+		const option = document.createElement("option");
+		option.value = name;
+		datalist.appendChild(option);
+	});
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+	try {
+		const pokemonNames = await fetchPokemonNames();
+		populateDatalist(pokemonNames);
+	} catch (error) {
+		console.error(error);
+		alert("Failed to fetch Pokémon names. Please try again.");
+	}
+
 	const button = document.querySelector(".button-wrapper button");
 
 	button.addEventListener("click", async (event) => {
 		event.preventDefault();
 
-		const pokemon1Name = document.querySelectorAll('input[name="names"]')[0]
-			.value;
-		const pokemon2Name = document.querySelectorAll('input[name="names"]')[1]
-			.value;
+		const pokemon1Name = document.querySelector(".selector1 input").value;
+		const pokemon2Name = document.querySelector(".selector2 input").value;
 
 		if (pokemon1Name && pokemon2Name) {
-			const [pokemon1Data, pokemon2Data] = await Promise.all([
-				fetchPokemonData(pokemon1Name),
-				fetchPokemonData(pokemon2Name),
-			]);
+			try {
+				const [pokemon1Data, pokemon2Data] = await Promise.all([
+					fetchPokemonData(pokemon1Name),
+					fetchPokemonData(pokemon2Name),
+				]);
 
-			updatePokemonCard(document.querySelectorAll(".card")[0], pokemon1Data);
-			updatePokemonCard(document.querySelectorAll(".card")[1], pokemon2Data);
+				updatePokemonCard(document.querySelectorAll(".card")[0], pokemon1Data);
+				updatePokemonCard(document.querySelectorAll(".card")[1], pokemon2Data);
 
-			updateBattleBox(
-				document.querySelectorAll(".battle-box")[0],
-				pokemon1Data
-			);
-
-			setTimeout(() => {
 				updateBattleBox(
-					document.querySelectorAll(".battle-box")[1],
-					pokemon2Data
+					document.querySelectorAll(".battle-box")[0],
+					pokemon1Data
 				);
-			}, 1000);
 
-			setTimeout(() => {
-				simulateBattle(pokemon1Data, pokemon2Data);
-			}, 5000);
+				setTimeout(() => {
+					updateBattleBox(
+						document.querySelectorAll(".battle-box")[1],
+						pokemon2Data
+					);
+				}, 1000);
+
+				setTimeout(() => {
+					simulateBattle(pokemon1Data, pokemon2Data);
+				}, 5000);
+			} catch (error) {
+				console.error(error);
+				alert("Failed to fetch Pokémon data. Please try again.");
+			}
 		} else {
 			alert("Please select two Pokémon to battle.");
 		}
