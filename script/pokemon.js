@@ -109,23 +109,15 @@ const resetButton = document.querySelector(".reset-button");
 function resetAll() {
 	const imgElement = document.querySelectorAll(".image-wrapper img");
 	const nameElement = document.querySelectorAll(".pokemon-name");
-	const descriptionElement = document.querySelectorAll(
-		".pokemon-description ul"
-	);
+	const descriptionElement = document.querySelectorAll(".pokemon-description");
 	const battleText = document.querySelectorAll(".battle-text");
 	const input = document.querySelectorAll("input");
 
-	let resetArray = [
-		imgElement,
-		nameElement,
-		descriptionElement,
-		battleText,
-		input,
-	];
+	let resetArray = [imgElement, nameElement, descriptionElement, battleText];
 
 	resetArray.forEach((items) => {
 		items.forEach((item) => {
-			item.innerText = "";
+			item.remove();
 		});
 
 		items.forEach((item) => {

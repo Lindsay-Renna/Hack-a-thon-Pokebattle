@@ -30,7 +30,8 @@ header {
 .selections {
 	display: flex;
 	justify-content: space-around;
-	gap: 11rem;
+	gap: 16rem;
+
 	margin: 3rem 0;
 
 	@include mobile {
@@ -152,6 +153,7 @@ header {
 		gap: 3rem;
 		justify-content: center;
 		width: 80%;
+		min-height: 3rem;
 
 		@include mobile {
 			width: 100%;
@@ -181,22 +183,35 @@ header {
 	}
 }
 
-button.reset-button {
-	@include button-style;
-	background-color: $poke-yellow;
-	display: inline-block;
-	width: 40%;
+.button-wrapper--reset {
+	margin: 0;
 
-	&:hover {
-		background-color: $poke-yellow-dark;
-		cursor: pointer;
+	.reset-button {
+		@include button-style;
+		background-color: $poke-yellow;
+		display: inline-block;
+		width: 40%;
+
+		&:hover {
+			background-color: $poke-yellow-dark;
+			cursor: pointer;
+		}
 	}
 }
 
 .overlay-image {
-	background-image: url("../Assets/images/grass.png");
+	background-image: url("../Assets/images/grass.jpg");
 	width: 100%;
-	height: 15vh;
+	height: 16rem;
 	opacity: 50%;
 	background-position: bottom;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+
+	.creator-names {
+		font-family: "Jersey";
+		margin: 0;
+		font-size: 1.5rem;
+	}
 }
