@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			setTimeout(() => {
 				simulateBattle(pokemon1Data, pokemon2Data);
-			}, 5000);
+			}, 6000);
 		} else {
 			alert("Please select two Pokémon to battle.");
 		}
@@ -136,18 +136,27 @@ function updateBattleBox(card, data) {
 	let capitalized_name = name.charAt(0).toUpperCase() + name.slice(1);
 
 	function battleTextUpdate(abilities, elements) {
+		const resetAnimation = (element, className) => {
+			element.classList.remove(className);
+			void element.offsetWidth; // Trigger reflow
+			element.classList.add(className);
+		};
+
 		setTimeout(() => {
 			elements[0].innerText = `${capitalized_name} started with ${abilities[0]}!`;
 			battleBox.appendChild(elements[0]);
+			resetAnimation(card, "horizontal-shake");
 		}, 1000);
 
-		card.classList.add("horizontal-shake");
-
 		setTimeout(() => {
+			resetAnimation(card, "horizontal-shake");
 			elements[1].innerText = `${capitalized_name} followed up with ${abilities[1]}!`;
 			battleBox.appendChild(elements[1]);
+			resetAnimation(card, "horizontal-shake2");
 		}, 3000);
 	}
+
+	card.classList.remove("horizontal-shake", "horizontal-shake2");
 
 	battleTextUpdate(abilities, elements);
 }
