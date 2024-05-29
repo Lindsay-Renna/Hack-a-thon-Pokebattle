@@ -222,14 +222,14 @@ header {
 }
 
 .horizontal-shake {
-	animation: horizontal-shaking 0.35s 1s;
+	animation: shake1 0.35s 1s;
 }
 
 .horizontal-shake2 {
-	animation: horizontal-shaking 0.35s 1s;
+	animation: shake2 0.35s 1s;
 }
 
-@keyframes horizontal-shaking {
+@keyframes shake1 {
 	0% {
 		transform: translateX(0);
 	}
@@ -244,5 +244,19 @@ header {
 	}
 	100% {
 		transform: translateX(0);
+	}
+}
+
+@keyframes shake2 {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+	25%,
+	75% {
+		transform: translateX(-15px);
+	}
+	50% {
+		transform: translateX(15px);
 	}
 }
