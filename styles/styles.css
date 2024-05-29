@@ -194,12 +194,12 @@ header p {
   padding-left: 1rem;
 }
 .arena .battle-result {
-  border: 5px solid #192653;
+  border: 5px solid #3c5aa6;
   border-radius: 10px;
   background-color: #192653;
   color: white;
   font-family: "Jersey";
-  font-size: 2rem;
+  font-size: 2.5rem;
   text-align: center;
   width: 50%;
 }
@@ -219,4 +219,12 @@ button.reset-button {
 button.reset-button:hover {
   background-color: #c7a008;
   cursor: pointer;
+}
+
+.overlay-image {
+  background-image: url("../Assets/images/grass.png");
+  width: 100%;
+  height: 15vh;
+  opacity: 50%;
+  background-position: bottom;
 }/*# sourceMappingURL=styles.css.map */
