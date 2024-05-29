@@ -153,7 +153,6 @@ header {
 		gap: 3rem;
 		justify-content: center;
 		width: 80%;
-		min-height: 3rem;
 
 		@include mobile {
 			width: 100%;
@@ -164,6 +163,7 @@ header {
 			width: 100%;
 			border: 5px solid $poke-dark-blue;
 			border-radius: 10px;
+			height: 10rem;
 
 			p {
 				padding-left: 1rem;
@@ -180,6 +180,7 @@ header {
 		font-size: 2.5rem;
 		text-align: center;
 		width: 50%;
+		height: 8rem;
 	}
 }
 
