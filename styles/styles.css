@@ -122,6 +122,7 @@ header p {
 }
 .card-display .card .pokemon-name {
   background-color: #3c5aa6;
+  font-weight: 400;
   color: white;
   width: 91.5%;
   text-align: center;
@@ -155,9 +156,14 @@ header p {
   font-family: "Jersey";
   font-size: 2rem;
   background-color: #3c5aa6;
-  border-radius: 4px;
+  border: 5px solid #192653;
+  border-radius: 10px;
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
+}
+.button-wrapper button:hover {
+  background-color: #192653;
+  cursor: pointer;
 }
 
 .arena {
@@ -173,20 +179,44 @@ header p {
   justify-content: center;
   width: 80%;
 }
+@media (max-width: 768px) {
+  .arena .arena-box {
+    width: 100%;
+    gap: 0.5rem;
+  }
+}
 .arena .arena-box .battle-box {
   width: 100%;
-  border: 3px solid #192653;
+  border: 5px solid #192653;
   border-radius: 10px;
 }
 .arena .arena-box .battle-box p {
   padding-left: 1rem;
 }
 .arena .battle-result {
-  border: 3px solid #192653;
-  background-color: #3c5aa6;
+  border: 5px solid #192653;
+  border-radius: 10px;
+  background-color: #192653;
   color: white;
   font-family: "Jersey";
   font-size: 2rem;
   text-align: center;
   width: 50%;
+}
+
+button.reset-button {
+  font-family: "Jersey";
+  font-size: 2rem;
+  background-color: #3c5aa6;
+  border: 5px solid #192653;
+  border-radius: 10px;
+  color: white;
+  padding: 1rem 1rem;
+  background-color: #ffcb05;
+  display: inline-block;
+  width: 40%;
+}
+button.reset-button:hover {
+  background-color: #c7a008;
+  cursor: pointer;
 }/*# sourceMappingURL=styles.css.map */

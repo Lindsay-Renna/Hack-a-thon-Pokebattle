@@ -94,6 +94,7 @@ header {
 
 		.pokemon-name {
 			background-color: $poke-blue;
+			font-weight: 400;
 			color: white;
 			width: 91.5%;
 			text-align: center;
@@ -130,12 +131,12 @@ header {
 	margin-bottom: 2rem;
 
 	button {
-		font-family: "Jersey";
-		font-size: 2rem;
-		background-color: $poke-blue;
-		border-radius: 4px;
-		color: white;
-		padding: 0.5rem 1rem;
+		@include button-style;
+
+		&:hover {
+			background-color: $poke-dark-blue;
+			cursor: pointer;
+		}
 	}
 }
 
@@ -152,9 +153,14 @@ header {
 		justify-content: center;
 		width: 80%;
 
+		@include mobile {
+			width: 100%;
+			gap: 0.5rem;
+		}
+
 		.battle-box {
 			width: 100%;
-			border: 3px solid $poke-dark-blue;
+			border: 5px solid $poke-dark-blue;
 			border-radius: 10px;
 
 			p {
@@ -164,12 +170,25 @@ header {
 	}
 
 	.battle-result {
-		border: 3px solid $poke-dark-blue;
-		background-color: $poke-blue;
+		border: 5px solid $poke-dark-blue;
+		border-radius: 10px;
+		background-color: $poke-dark-blue;
 		color: white;
 		font-family: "Jersey";
 		font-size: 2rem;
 		text-align: center;
 		width: 50%;
+	}
+}
+
+button.reset-button {
+	@include button-style;
+	background-color: $poke-yellow;
+	display: inline-block;
+	width: 40%;
+
+	&:hover {
+		background-color: $poke-yellow-dark;
+		cursor: pointer;
 	}
 }

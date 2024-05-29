@@ -5,3 +5,13 @@
 		@content;
 	}
 }
+
+@mixin button-style {
+	font-family: "Jersey";
+	font-size: 2rem;
+	background-color: $poke-blue;
+	border: 5px solid $poke-dark-blue;
+	border-radius: 10px;
+	color: white;
+	padding: 1rem 1rem;
+}
