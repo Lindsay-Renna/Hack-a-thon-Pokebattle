@@ -12,14 +12,26 @@ async function fetchPokemonData(pokemonName) {
 
 // Updating the cards with fetched data
 function updatePokemonCard(card, data) {
-	const imgElement = card.querySelector(".image-wrapper img");
-	const nameElement = card.querySelector(".pokemon-name");
-	const descriptionElement = card.querySelector(".pokemon-description ul");
+	const cardBox = card;
+	const imageElementWrapper = document.createElement("div");
+	imageElementWrapper.classList.add("image-wrapper");
+	const imgElement = document.createElement("img");
+	const nameElement = document.createElement("h3");
+	const descriptionElement = document.createElement("div");
+
+	cardBox.appendChild(imageElementWrapper);
 
 	imgElement.src = data.sprites.other["official-artwork"].front_default;
+	imageElementWrapper.appendChild(imgElement);
+
+	nameElement.classList.add("pokemon-name");
 	nameElement.textContent =
 		data.name.charAt(0).toUpperCase() + data.name.slice(1);
+	cardBox.appendChild(nameElement);
+
+	descriptionElement.classList.add("pokemon-description");
 	descriptionElement.innerHTML = `
+    <ul>
         <li>Type: ${data.types
 					.map((typeInfo) => typeInfo.type.name)
 					.join(", ")}</li>
@@ -35,7 +47,9 @@ function updatePokemonCard(card, data) {
         <li>DEF: ${
 					data.stats.find((stat) => stat.stat.name === "defense").base_stat
 				}</li>
-    `;
+    </ul>`;
+
+	cardBox.appendChild(descriptionElement);
 }
 // load data fetched from the Poké API
 async function loadPokemonData(pokemon1Name, pokemon2Name) {
