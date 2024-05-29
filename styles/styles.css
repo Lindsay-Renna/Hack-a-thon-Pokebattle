@@ -68,21 +68,46 @@ header p {
 }
 .selections form label {
   display: block;
+  font-family: "Jersey";
+  font-size: 2rem;
+}
+.selections form input {
+  min-height: 1.5rem;
+  font-family: "Kanit";
 }
 
 .card-display {
   display: flex;
-  justify-content: center;
-  gap: 8rem;
+  justify-content: space-around;
   margin-bottom: 3rem;
 }
+@media (max-width: 768px) {
+  .card-display {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
 .card-display .card {
-  width: 30%;
-  height: 31rem;
-  background-size: contain;
+  width: 21.375rem;
+  height: 29.6875rem;
+  background-size: cover;
   background-repeat: no-repeat;
   align-items: center;
 }
 .card-display .card--blank {
   background-image: url("../Assets/images/pokemon-card-back.jpg");
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.button-wrapper button {
+  font-family: "Jersey";
+  font-size: 2rem;
+  background-color: #3c5aa6;
+  border-radius: 4px;
+  color: white;
+  padding: 0.5rem 1rem;
 }/*# sourceMappingURL=styles.css.map */

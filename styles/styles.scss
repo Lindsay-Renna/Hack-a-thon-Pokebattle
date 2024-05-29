@@ -1,4 +1,6 @@
 @use "./partials/fonts" as *;
+@use "./partials/variables" as *;
+@use "./partials/mixins" as *;
 
 body {
 	margin: 0;
@@ -37,25 +39,51 @@ header {
 
 		label {
 			display: block;
+			font-family: "Jersey";
+			font-size: 2rem;
+		}
+
+		input {
+			min-height: 1.5rem;
+			font-family: "Kanit";
 		}
 	}
 }
 
 .card-display {
 	display: flex;
-	justify-content: center;
-	gap: 8rem;
+	justify-content: space-around;
 	margin-bottom: 3rem;
 
+	@include mobile {
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+
 	.card {
-		width: 30%;
-		height: 31rem;
-		background-size: contain;
+		width: 21.375rem;
+		height: 29.6875rem;
+		background-size: cover;
 		background-repeat: no-repeat;
 		align-items: center;
 	}
 
 	.card--blank {
 		background-image: url("../Assets/images/pokemon-card-back.jpg");
+	}
+}
+
+.button-wrapper {
+	display: flex;
+	justify-content: center;
+
+	button {
+		font-family: "Jersey";
+		font-size: 2rem;
+		background-color: $Dark-blue;
+		border-radius: 4px;
+		color: white;
+		padding: 0.5rem 1rem;
 	}
 }
