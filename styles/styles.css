@@ -59,7 +59,13 @@ header p {
 .selections {
   display: flex;
   justify-content: space-around;
+  gap: 11rem;
   margin: 3rem 0;
+}
+@media (max-width: 768px) {
+  .selections {
+    gap: 0;
+  }
 }
 .selections form {
   display: flex;
@@ -89,11 +95,52 @@ header p {
   }
 }
 .card-display .card {
+  display: flex;
+  flex-direction: column;
   width: 21.375rem;
   height: 29.6875rem;
   background-size: cover;
   background-repeat: no-repeat;
   align-items: center;
+  overflow: hidden;
+}
+.card-display .card .image-wrapper {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 91.5%;
+  margin-top: 1rem;
+  text-align: center;
+  background-color: white;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+.card-display .card .image-wrapper img {
+  width: 80%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card-display .card .pokemon-name {
+  background-color: #3c5aa6;
+  color: white;
+  width: 91.5%;
+  text-align: center;
+  margin: 0;
+}
+.card-display .card .pokemon-description {
+  background-color: #ffcb05;
+  width: 91.5%;
+  padding-bottom: 0.5rem;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.card-display .card .pokemon-description ul li {
+  list-style: none;
+}
+.card-display .vs-logo {
+  height: 3.75rem;
+  width: 4rem;
+  align-self: center;
 }
 .card-display .card--blank {
   background-image: url("../Assets/images/pokemon-card-back.jpg");
@@ -102,6 +149,7 @@ header p {
 .button-wrapper {
   display: flex;
   justify-content: center;
+  margin-bottom: 2rem;
 }
 .button-wrapper button {
   font-family: "Jersey";
@@ -110,4 +158,35 @@ header p {
   border-radius: 4px;
   color: white;
   padding: 0.5rem 1rem;
+}
+
+.arena {
+  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+.arena .arena-box {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  width: 80%;
+}
+.arena .arena-box .battle-box {
+  width: 100%;
+  border: 3px solid #192653;
+  border-radius: 10px;
+}
+.arena .arena-box .battle-box p {
+  padding-left: 1rem;
+}
+.arena .battle-result {
+  border: 3px solid #192653;
+  background-color: #3c5aa6;
+  color: white;
+  font-family: "Jersey";
+  font-size: 2rem;
+  text-align: center;
+  width: 50%;
 }/*# sourceMappingURL=styles.css.map */

@@ -30,7 +30,12 @@ header {
 .selections {
 	display: flex;
 	justify-content: space-around;
+	gap: 11rem;
 	margin: 3rem 0;
+
+	@include mobile {
+		gap: 0;
+	}
 
 	form {
 		display: flex;
@@ -62,11 +67,56 @@ header {
 	}
 
 	.card {
+		display: flex;
+		flex-direction: column;
 		width: 21.375rem;
 		height: 29.6875rem;
 		background-size: cover;
 		background-repeat: no-repeat;
 		align-items: center;
+		overflow: hidden;
+
+		.image-wrapper {
+			object-fit: cover;
+			width: 91.5%;
+			margin-top: 1rem;
+			text-align: center;
+			background-color: white;
+			border-top-right-radius: 4px;
+			border-top-left-radius: 4px;
+
+			img {
+				width: 80%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		.pokemon-name {
+			background-color: $poke-blue;
+			color: white;
+			width: 91.5%;
+			text-align: center;
+			margin: 0;
+		}
+
+		.pokemon-description {
+			background-color: $poke-yellow;
+			width: 91.5%;
+			padding-bottom: 0.5rem;
+			border-bottom-left-radius: 4px;
+			border-bottom-right-radius: 4px;
+
+			ul li {
+				list-style: none;
+			}
+		}
+	}
+
+	.vs-logo {
+		height: 3.75rem;
+		width: 4rem;
+		align-self: center;
 	}
 
 	.card--blank {
@@ -77,13 +127,49 @@ header {
 .button-wrapper {
 	display: flex;
 	justify-content: center;
+	margin-bottom: 2rem;
 
 	button {
 		font-family: "Jersey";
 		font-size: 2rem;
-		background-color: $Dark-blue;
+		background-color: $poke-blue;
 		border-radius: 4px;
 		color: white;
 		padding: 0.5rem 1rem;
+	}
+}
+
+.arena {
+	margin-bottom: 5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	align-items: center;
+
+	.arena-box {
+		display: flex;
+		gap: 3rem;
+		justify-content: center;
+		width: 80%;
+
+		.battle-box {
+			width: 100%;
+			border: 3px solid $poke-dark-blue;
+			border-radius: 10px;
+
+			p {
+				padding-left: 1rem;
+			}
+		}
+	}
+
+	.battle-result {
+		border: 3px solid $poke-dark-blue;
+		background-color: $poke-blue;
+		color: white;
+		font-family: "Jersey";
+		font-size: 2rem;
+		text-align: center;
+		width: 50%;
 	}
 }
